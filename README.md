@@ -123,15 +123,25 @@ This will:
 
 ---
 
+
 ## Outputs
 
-Generated under `Unlearn_Comparison_<timestamp>/`:
+After running `split_unlearning.py`, a directory `Unlearn_Comparison_<timestamp>/` is created:
+Unlearn_Comparison_<timestamp>/
+├── client_0/ # Raw logs for client 0 (training → unlearning → fine-tune)
+├── client_0_results/ # Plots & summary CSVs for client 0
+├── client_1/ # Raw logs for client 1
+├── client_1_results/ # Plots & summary CSVs for client 1
+├── experiment_client/ # Comparative plots/CSVs showing each client’s performance by strategy
+├── experiment_global/ # Per-strategy metrics over global rounds (before & after unlearning)
+├── global_client_comparison_all/ # Combined CSVs/plots comparing all clients across strategies
+├── global_results/ # Aggregated final metrics & high-level plots (test, forget, MIA, backdoor)
+├── grad_shards/ # Temporary per-batch gradient caches (auto-deleted after run)
+├── backdoor_sample.png # Example poisoned image used in backdoor tests
+├── hyperparameters.txt # Complete list of CLI flags & values for this run
+└── source_code.py # Snapshot of split_unlearning.py at execution time
 
-- `hyperparameters.txt`  
-- `source_code.py` (snapshot of this script)  
-- Per-client subdirectories with CSV & PNG metrics  
-- `global_results/` for aggregated figures & tables  
-- `grad_shards/` (intermediate gradient caches; removed post-run)
+Use the data and images in each folder to build your tables, figures, and per-client or global analyses for the paper.
 
 ---
 
