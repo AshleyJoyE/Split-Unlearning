@@ -127,21 +127,24 @@ This will:
 ## Outputs
 
 After running `split_unlearning.py`, a directory `Unlearn_Comparison_<timestamp>/` is created:
-Unlearn_Comparison_<timestamp>/
-├── client_0/ # Raw logs for client 0 (training → unlearning → fine-tune)
-├── client_0_results/ # Plots & summary CSVs for client 0
-├── client_1/ # Raw logs for client 1
-├── client_1_results/ # Plots & summary CSVs for client 1
-├── experiment_client/ # Comparative plots/CSVs showing each client’s performance by strategy
-├── experiment_global/ # Per-strategy metrics over global rounds (before & after unlearning)
-├── global_client_comparison_all/ # Combined CSVs/plots comparing all clients across strategies
-├── global_results/ # Aggregated final metrics & high-level plots (test, forget, MIA, backdoor)
-├── grad_shards/ # Temporary per-batch gradient caches (auto-deleted after run)
-├── backdoor_sample.png # Example poisoned image used in backdoor tests
-├── hyperparameters.txt # Complete list of CLI flags & values for this run
-└── source_code.py # Snapshot of split_unlearning.py at execution time
 
-Use the data and images in each folder to build your tables, figures, and per-client or global analyses for the paper.
+- **client_i/**: raw training/unlearning/finetuning logs for client `i`  
+- **client_i_results/**: per-client plots (train/unlearn/ft) and summary CSVs  
+- **experiment_client/**: side-by-side comparison of clients’ curves for each strategy  
+- **experiment_global/**: global metrics over time for each unlearning strategy  
+- **global_client_comparison_all/**: unified comparison of all clients & strategies  
+- **global_results/**: final summary CSVs and combined figures:
+  - `test_accuracy_summary.csv`
+  - `forget_accuracy_summary.csv`
+  - `mia_summary.csv`
+  - `backdoor_summary.csv`
+  - `combined_bar_chart.png`
+  - `combined_line_chart.png`
+- **grad_shards/**: intermediate gradient cache files (removed after completion)  
+- **backdoor_sample.png**: visual example of the trigger pattern  
+- **hyperparameters.txt**: exact command-line arguments used  
+- **source_code.py**: the code as run, for full reproducibility  
+
 
 ---
 
