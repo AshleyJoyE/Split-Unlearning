@@ -133,13 +133,7 @@ After running `split_unlearning.py`, a directory `Unlearn_Comparison_<timestamp>
 - **experiment_client/**: side-by-side comparison of clients’ curves for each strategy  
 - **experiment_global/**: global metrics over time for each unlearning strategy  
 - **global_client_comparison_all/**: unified comparison of all clients & strategies  
-- **global_results/**: final summary CSVs and combined figures:
-  - `test_accuracy_summary.csv`
-  - `forget_accuracy_summary.csv`
-  - `mia_summary.csv`
-  - `backdoor_summary.csv`
-  - `combined_bar_chart.png`
-  - `combined_line_chart.png`
+- **global_results/**: final summary CSVs and combined figures
 - **grad_shards/**: intermediate gradient cache files (removed after completion)  
 - **backdoor_sample.png**: visual example of the trigger pattern  
 - **hyperparameters.txt**: exact command-line arguments used  
